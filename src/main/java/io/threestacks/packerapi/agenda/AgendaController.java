@@ -1,17 +1,26 @@
 package io.threestacks.packerapi.agenda;
 
+
 import java.util.List;
 import java.util.Arrays;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @RestController
+@CrossOrigin(origins= "*", allowedHeaders = "Content-Type")
 public class AgendaController {
 
     @Autowired
     private AgendaService agendaService;
+
+    @RequestMapping("/")
+    public String stuff(){
+        return "Yo Momma";
+    }
 
     @RequestMapping("/agendas")
     public List <Agenda> getAllAgendas(){

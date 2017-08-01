@@ -1,9 +1,12 @@
 package io.threestacks.packerapi.agenda;
 
-/**
- * Created by roseespiritu on 7/28/17.
- */
-public class Agenda {
+//import javax.persistence.Entity;
+
+import java.io.Serializable;
+
+//@Entity
+public class Agenda implements Serializable {
+
 
     private String id;
     private String name;
