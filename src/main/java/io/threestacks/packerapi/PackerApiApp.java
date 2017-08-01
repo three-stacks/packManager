@@ -8,6 +8,5 @@ public class PackerApiApp {
 
     public static void main(String[] args) {
         SpringApplication.run(PackerApiApp.class, args);
-
     }
 }
