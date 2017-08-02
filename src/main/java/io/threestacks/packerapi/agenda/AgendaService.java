@@ -1,6 +1,7 @@
 package io.threestacks.packerapi.agenda;
 
 import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import java.util.Arrays;
 import java.util.List;
