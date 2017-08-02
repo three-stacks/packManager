@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Delete {
+public class GetByID {
     public static void main( String args[] ) {
         Connection c = null;
         Statement stmt = null;
@@ -18,11 +18,9 @@ public class Delete {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "DELETE from agendas where ID = 2;";
-            stmt.executeUpdate(sql);
             c.commit();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM agendas where id=3;" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM agendas where id=4;" );
             while ( rs.next() ) {
                 int id = rs.getInt("id");
                 String  name = rs.getString("name");

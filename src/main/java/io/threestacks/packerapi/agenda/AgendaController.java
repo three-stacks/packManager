@@ -16,7 +16,7 @@ public class AgendaController {
 
     @Autowired
     private AgendaService agendaService;
-    private GetAll.PackerService packerService;
+//    private GetAll.PackerService packerService;
 
     @RequestMapping("/")
     public String stuff(){
