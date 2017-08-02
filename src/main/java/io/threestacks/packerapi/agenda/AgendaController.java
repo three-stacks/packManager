@@ -2,9 +2,9 @@ package io.threestacks.packerapi.agenda;
 
 
 import java.util.List;
-import java.util.Arrays;
 
 
+import io.threestacks.packerapi.service.GetAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +16,7 @@ public class AgendaController {
 
     @Autowired
     private AgendaService agendaService;
+    private GetAll.PackerService packerService;
 
     @RequestMapping("/")
     public String stuff(){
@@ -33,7 +34,7 @@ public class AgendaController {
     }
 
     @RequestMapping(method= RequestMethod.POST, value="/agendas")
-    public  void addAgenda(@RequestBody Agenda agenda){
+    public void addAgenda(@RequestBody Agenda agenda){
         agendaService.addAgenda(agenda);
     }
 
