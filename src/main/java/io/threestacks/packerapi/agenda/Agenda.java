@@ -13,16 +13,16 @@ public class Agenda{
     private long id;
     private String name;
     private String agenda;
-    private long user_id;
+    private long userId;
 
     public Agenda(){
     }
 
-    public Agenda(long id, String name, String agenda, long user_id) {
+    public Agenda(long id, String name, String agenda, long userId) {
         this.id = id;
         this.name = name;
         this.agenda = agenda;
-        this.user_id = user_id;
+        this.userId = userId;
 
     }
 
@@ -50,12 +50,12 @@ public class Agenda{
         this.agenda = agenda;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
 }

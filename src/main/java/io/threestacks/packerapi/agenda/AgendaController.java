@@ -13,7 +13,6 @@ public class AgendaController {
     @Autowired
     private AgendaService agendaService;
 
-
     @RequestMapping("/")
     public String stuff(){
         return "Yo Momma";
@@ -27,6 +26,11 @@ public class AgendaController {
     @RequestMapping("/agendas/{id}")
     public Agenda getAgenda(@PathVariable long id){
         return agendaService.getAgenda(id);
+    }
+
+    @RequestMapping("/agendas/{userId}")
+    public List <Agenda> getUserAgenda(@PathVariable long userId){
+        return agendaService.getUserAgenda(userId);
     }
 
     @RequestMapping(method= RequestMethod.POST, value="/agendas")

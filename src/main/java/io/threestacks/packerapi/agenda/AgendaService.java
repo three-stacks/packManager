@@ -16,8 +16,13 @@ public class AgendaService {
 
     public List<Agenda> getAllAgendas(){
         List<Agenda> agendas = new ArrayList<>();
-        agendaRepository.findAll()
-        .forEach(agendas::add);
+        agendaRepository.findAll().forEach(agendas::add);
+        return agendas;
+    }
+
+    public List<Agenda> getUserAgenda(long userId){
+        List<Agenda> agendas = new ArrayList<>();
+        agendaRepository.findByUserId(userId).forEach(agendas::add);
         return agendas;
     }
 
