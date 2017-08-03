@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins= "*", allowedHeaders = "Content-Type")
 public class AgendaController {
 
     @Autowired

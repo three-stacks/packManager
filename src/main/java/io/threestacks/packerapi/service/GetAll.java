@@ -17,7 +17,7 @@ public class GetAll {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/travelpack",
-                            "postgres", "123");
+                            "djd", "djd");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
