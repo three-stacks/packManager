@@ -1,13 +1,9 @@
 package io.threestacks.packerapi.agenda;
 
-
 import java.util.List;
-
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 
 
 @RestController
@@ -29,22 +25,24 @@ public class AgendaController {
     }
 
     @RequestMapping("/agendas/{id}")
-    public Agenda getAgenda(@PathVariable String id){
+    public Agenda getAgenda(@PathVariable long id){
         return agendaService.getAgenda(id);
     }
 
     @RequestMapping(method= RequestMethod.POST, value="/agendas")
-    public void addAgenda(@RequestBody Agenda agenda){
-        agendaService.addAgenda(agenda);
+    public Agenda addAgenda(@RequestBody Agenda agenda){
+        Agenda newAgenda = agendaService.addAgenda(agenda);
+        return newAgenda;
     }
 
     @RequestMapping(method= RequestMethod.PUT, value="/agendas/{id}")
-    public void updateAgenda(@RequestBody Agenda agenda, @PathVariable String id){
-        agendaService.updateAgenda(id, agenda);
+    public Agenda updateAgenda(@RequestBody Agenda agenda, @PathVariable long id){
+        Agenda updatedAgenda = agendaService.updateAgenda(id, agenda);
+        return updatedAgenda;
     }
 
     @RequestMapping(method= RequestMethod.DELETE, value="/agendas/{id}")
-    public void deleteAgenda(@PathVariable String id){
+    public void deleteAgenda(@PathVariable long id){
         agendaService.deleteAgenda(id);
     }
 }

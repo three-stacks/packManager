@@ -1,44 +1,40 @@
 package io.threestacks.packerapi.agenda;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class AgendaService {
 
-    private List<Agenda> agendas = new ArrayList<>(Arrays.asList(
-            new Agenda("passport", "passport stuff", "passport description", true),
-                new Agenda("flight", "flight stuff", "flight description", false),
-                new Agenda("house", "house stuff", "house description", true)
-                ));
+    @Autowired
+    private AgendaRepository agendaRepository;
 
     public List<Agenda> getAllAgendas(){
+        List<Agenda> agendas = new ArrayList<>();
+        agendaRepository.findAll()
+        .forEach(agendas::add);
         return agendas;
     }
 
-    public Agenda getAgenda(String id){
-        return agendas.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+    public Agenda getAgenda(long id) {
+        return agendaRepository.findOne(id);
     }
 
-    public void addAgenda(Agenda agenda){
-        agendas.add(agenda);
+    public Agenda addAgenda(Agenda agenda){
+        agendaRepository.save(agenda);
+        return agenda;
     }
 
-    public void updateAgenda(String id, Agenda agenda){
-        for(int i = 0; i < agendas.size(); i++){
-            Agenda t = agendas.get(i);
-            if(t.getId().equals(id)){
-                agendas.set(i, agenda);
-                return;
-            }
-        }
+    public Agenda updateAgenda(long id, Agenda agenda){
+        agendaRepository.save(agenda);
+        return agenda;
     }
-    public void deleteAgenda(String id){
-
-        agendas.removeIf(t -> t.getId().equals(id));
+    public void deleteAgenda(long id){
+        agendaRepository.delete(id);
     }
 }
