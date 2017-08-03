@@ -5,16 +5,13 @@ package io.threestacks.packerapi.agenda;
 import java.io.Serializable;
 
 //@Entity
-public class Agenda implements Serializable {
+public class Agenda{
 
 
     private String id;
     private String name;
     private String agenda;
 
-    public Agenda(){
-
-    }
     public Agenda(String id, String name, String agenda, Boolean complete) {
         this.id = id;
         this.name = name;

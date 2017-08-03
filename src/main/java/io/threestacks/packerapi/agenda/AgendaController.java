@@ -4,7 +4,7 @@ package io.threestacks.packerapi.agenda;
 import java.util.List;
 
 
-import io.threestacks.packerapi.service.GetAll;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +16,7 @@ public class AgendaController {
 
     @Autowired
     private AgendaService agendaService;
-//    private GetAll.PackerService packerService;
+
 
     @RequestMapping("/")
     public String stuff(){

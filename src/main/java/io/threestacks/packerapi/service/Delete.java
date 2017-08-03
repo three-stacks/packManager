@@ -1,9 +1,13 @@
 package io.threestacks.packerapi.service;
 
+import io.threestacks.packerapi.agenda.Agenda;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Delete {
     public static void main( String args[] ) {
@@ -22,16 +26,28 @@ public class Delete {
             stmt.executeUpdate(sql);
             c.commit();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM agendas where id=3;" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM agendas;" );
+            ArrayList<Agenda> list = new ArrayList<Agenda>();
             while ( rs.next() ) {
-                int id = rs.getInt("id");
+                String id = rs.getString("id");
                 String  name = rs.getString("name");
                 String  agenda = rs.getString("agenda");
-                System.out.println( "ID = " + id );
-                System.out.println( "NAME = " + name );
-                System.out.println( "AGENDA = " + agenda );
-                System.out.println();
+//                Boolean  complete = rs.getBoolean("complete");
+//                Agenda listItem = new Agenda();
+//                listItem.setId(id);
+//                listItem.setName(name);
+//                listItem.setAgenda(agenda);
+//                listItem.setAgenda(complete);
+
+                System.out.println( "id = " + id );
+                System.out.println( "name = " + name );
+                System.out.println( "agenda = " + agenda );
+//                list.add(listItem);
+//                System.out.println(list);
+
             }
+//            System.out.println();
+
             rs.close();
             stmt.close();
             c.close();
