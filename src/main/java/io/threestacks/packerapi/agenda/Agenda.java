@@ -1,32 +1,36 @@
 package io.threestacks.packerapi.agenda;
 
-//import javax.persistence.Entity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import java.io.Serializable;
+@Entity
+public class Agenda{
 
-//@Entity
-public class Agenda implements Serializable {
-
-
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String name;
     private String agenda;
+    private long userId;
 
     public Agenda(){
-
     }
-    public Agenda(String id, String name, String agenda, Boolean complete) {
+
+    public Agenda(long id, String name, String agenda, long userId) {
         this.id = id;
         this.name = name;
         this.agenda = agenda;
-        this.complete = complete;
+        this.userId = userId;
+
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,15 +50,13 @@ public class Agenda implements Serializable {
         this.agenda = agenda;
     }
 
-    public Boolean getComplete() {
-        return complete;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setComplete(Boolean complete) {
-        this.complete = complete;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
-
-    private Boolean complete;
 
 }
 
