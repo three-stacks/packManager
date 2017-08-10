@@ -48,3 +48,4 @@ nbdist/
 
 src/main/resources/application.properties
 .vscode
+MANIFEST.MF
