@@ -38,7 +38,7 @@ public class AgendaService {
     public Agenda updateAgenda(long id, Agenda agenda){
         Agenda agendaFound = agendaRepository.findOne(id);
         agendaRepository.save(agenda);
-        return agenda;
+        return agendaFound;
     }
 
     public void deleteAgenda(long id){
