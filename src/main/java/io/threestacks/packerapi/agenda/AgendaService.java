@@ -20,7 +20,7 @@ public class AgendaService {
         return agendas;
     }
 
-    public List<Agenda> getUserAgenda(long userId){
+    public List<Agenda> getUserAgendas(long userId){
         List<Agenda> agendas = new ArrayList<>();
         agendaRepository.findByUserId(userId).forEach(agendas::add);
         return agendas;
@@ -35,10 +35,12 @@ public class AgendaService {
         return agenda;
     }
 
-    public Agenda updateAgenda(long id, Agenda agenda){
-        agendaRepository.save(agenda);
-        return agenda;
-    }
+//    public Agenda updateAgenda(long id, Agenda agenda){
+//        Agenda agendaFound = agendaRepository.findOne(id);
+//        agendaRepository.save(agenda);
+//        return agenda;
+//    }
+
     public void deleteAgenda(long id){
         agendaRepository.delete(id);
     }

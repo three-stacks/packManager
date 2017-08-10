@@ -15,6 +15,8 @@ public class Agenda{
     private String agenda;
     private long userId;
 
+
+
     public Agenda(){
     }
 
@@ -57,6 +59,5 @@ public class Agenda{
     public void setUserId(long userId) {
         this.userId = userId;
     }
-
 }
 
